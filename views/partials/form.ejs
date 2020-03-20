@@ -1,0 +1,44 @@
+<form action="/register" method="POST" style="display: flex; flex-direction: column; align-items: flex-start; background-color: #2c3e50; padding: 15px; margin-bottom: 50px; border-radius: 5px; max-width:600px; width:100%;">
+
+    <input type="text" name="firstname" id="firstname" placeholder="First *" required style="width: 100%; font-size: 1.25rem; font-weight: 300; height: 50px; padding-left: 10px; margin-bottom: 15px; border-radius: 3px; border: none;">
+
+    <input type="text" name="lastname" id="lastname" placeholder="Last *" required style="width: 100%; font-size: 1.25rem; font-weight: 300; height: 50px; padding-left: 10px; margin-bottom: 15px; border-radius: 3px; border: none;">
+
+    <input type="text" name="address" id="address" placeholder="Address *" required style="width: 100%; font-size: 1.25rem; font-weight: 300; height: 50px; padding-left: 10px; margin-bottom: 15px; border-radius: 3px; border: none;">
+
+    <input type="text" name="city" id="city" placeholder="City *" required style="width: 100%; font-size: 1.25rem; font-weight: 300; height: 50px; padding-left: 10px; margin-bottom: 15px; border-radius: 3px; border: none;">
+
+    <input type="text" name="state" id="state" placeholder="State *" required style="width: 100%; font-size: 1.25rem; font-weight: 300; height: 50px; padding-left: 10px; margin-bottom: 15px; border-radius: 3px; border: none;">
+
+    <input type="number" name="zip" id="zip" placeholder="Zip Code *" required style="width: 100%; font-size: 1.25rem; font-weight: 300; height: 50px; padding-left: 10px; margin-bottom: 15px; border-radius: 3px; border: none;">
+
+    <label for="age">Choose your age:</label>
+    <select name="age" id="age" style="width: 100%; font-size: 1.25rem; font-weight: 300; height: 50px; padding-left: 10px; margin-bottom: 15px; border-radius: 3px; border: none;">
+        <% for(var age = 1; age <= 100; age++) {%>
+            <option value="<%=age%>"><%=age%></option>
+        <%}%>
+    </select>
+
+    <p>Please select your gender:</p>
+    <div style="display: flex; flex-direction: row;">
+    <input type="radio" id="male" name="gender" value="male" style="margin-right: 15px">
+    <label for="male">Male</label><br>
+    </div>
+    <div style="display: flex; flex-direction: row;">
+    <input type="radio" id="female" name="gender" value="female" style="margin-right: 15px">
+    <label for="female">Female</label><br>
+    </div>
+
+    <div style="display: flex; flex-direction: row; margin: 15px 0px;">
+    <input type="checkbox" id="consent" name="consent" value="Consent" style="margin-right: 15px">
+    <label for="consent">Consent</label style="margin-bottom: 10px;"><br>
+    </div>
+
+    <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Type your bio here" style="width: 100%; font-size: 1.25rem; font-weight: 300; padding: 10px; margin-bottom: 15px; border-radius: 3px; border: none;"></textarea>
+
+    <button type="submit" style="width: 30%; margin: 0 auto; border: 1px solid #fff; border-radius: 3px; background-color: transparent; padding: 10px; color: white; font-size: 1em; transition: all ease .3s;"
+        onMouseOver="this.style.color='#333'; this.style.backgroundColor='#fff'"
+        onMouseOut="this.style.color='#fff'; this.style.backgroundColor='transparent'">
+            Submit
+    </button>
+</form>
