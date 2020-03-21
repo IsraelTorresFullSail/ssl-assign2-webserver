@@ -81,6 +81,48 @@ router.post("/register", function(req,res) {
         errorsReg.push("Bio is required")
     }
 
+    let reL  = /^[a-zA-Z]+$/;
+    if(!reL.test(req.body.firstname)) {
+        errorsReg.push("First name is not valid, it should be at least one letter")
+    }
+    if(!reL.test(req.body.lastname)) {
+        errorsReg.push("Last name is not valid, it should be at least one letter")
+    }
+    if(!reL.test(req.body.city)) {
+        errorsReg.push("City is not valid, it should be at least one letter")
+    }
+    if(!reL.test(req.body.state)) {
+        errorsReg.push("State is not valid, it should be at least one letter")
+    }
+
+    if(!reL.test(req.body.bio)) {
+        errorsReg.push("Bio is not valid, it should be at least one letter")
+    }
+
+    let reA = /^[a-zA-Z0-9\s,'-]*$/;
+    if(!reA.test(req.body.address)) {
+        errorsReg.push("Address is not valid, it should be at least one number and one letter")
+    }
+
+    let reZ = /^[/\d]{5}?$/;
+    if(!reZ.test(req.body.zip)) {
+        errorsReg.push("Zip code is not valid, it should be 5 digits")
+    }
+
+    let reAg = /^[/\d]{1}?$/;
+    if(!reAg.test(req.body.age)) {
+        errorsReg.push("Age is not valid, it should be 1 digits")
+    }
+
+    let reG = / /;
+    if(reG.test(req.body.gender)) {
+        errorsReg.push('Gender is not valid. Select a gender')
+    }
+
+    if(reG.test(req.body.consent)) {
+        errorsReg.push('Consent is not valid. It should be checked')
+    }
+
     res.render("index", {pagename: "Home", errors:errorsReg});
 })
 
