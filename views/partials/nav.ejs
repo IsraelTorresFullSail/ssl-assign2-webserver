@@ -21,6 +21,19 @@
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/About">About</a>
             <%}%>
           </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <%if(typeof(sess)!="undefined" && sess.loggedin==true){%>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile">Profile</a>
+            <%}%>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <%if(typeof(sess)!="undefined" && sess.loggedin==true){%>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Logout</a>
+            <%}%>
+          </li>
+            
+
+          
           <!-- <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/" id="current">Contact</a>
           </li> -->
@@ -35,4 +48,12 @@
       <input type="text" name="password" placeholder="password">
       <input type="submit">
     </form>
+  </div>
+
+  <div style="color: red; margin-bottom: 20px;">
+    <%if(typeof(errors)!="undefined"){%>
+      <% for(x in errors) {%>
+          <br><span><%=errors[x]%></span>
+      <%}%>
+    <%}%>
   </div>
